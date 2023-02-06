@@ -27,6 +27,7 @@ const Home: React.FC<Props> = ({ items }) => {
         <meta property="twitter:url" content="https://blog.animesharma3.com" />
         <meta property="twitter:title" content="Animesh Sharma Blog" />
         <meta property="twitter:description" content="Animesh Sharma Blog" />
+        <meta charSet="UTF-8" />
         <meta
           name="keywords"
           content="animesh sharma blog, programming, development, data science, tutorials, technology, trends, insights, animesh sharma, animesharma3, programming courses, programming tutorials,web development courses, web development tutorials,javascript courses, html courses, web design courses,web design tutorials, learn web development, free programming courses"

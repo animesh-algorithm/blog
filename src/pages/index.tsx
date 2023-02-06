@@ -36,7 +36,7 @@ const Home: React.FC<Props> = ({ items }) => {
         <meta name="author" content="Animesh Sharma" />
         <meta name="robots" content="index, follow" />
         <meta name="language" content="English" />
-        <link rel="icon" href="/rain.jpeg" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
         className={`

@@ -50,7 +50,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           {article.fields.tags.map((tag: string) => (
             <span
               key={tag}
-              className="px-2 py-1 mr-2 text-sm font-semibold text-gray-600 bg-gray-200 rounded-full  dark:text-gray-400 dark:bg-gray-800"
+              className="px-2 py-1 mr-2 text-sm font-semibold text-gray-600 bg-gray-200 rounded-full dark:text-gray-400 dark:bg-gray-800"
             >
               {tag}
             </span>
@@ -58,7 +58,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
         </div>
 
         <section className="m-4 mt-6 text-gray-800 dark:text-gray-400">
-          <ReactMarkdown className="leading-8 prose prose-xl text-gray-800  dark:text-gray-400 prose-headings:text-gray-700 prose-headings:dark:text-gray-300 prose-code:dark:text-gray-300 prose-strong:dark:text-gray-300 prose-em:dark:text-gray-300 prose-a:dark:text-gray-300 prose-a:hover:dark:text-gray-300 prose-a:active:dark:text-gray-300 prose-a:focus:dark:text-gray-300 prose-a:visited:dark:text-gray-300 prose-a:link:dark:text-gray-300">
+          <ReactMarkdown className="leading-8 prose prose-xl text-gray-800 dark:text-gray-400 prose-headings:text-gray-700 prose-headings:dark:text-gray-300 prose-code:dark:text-gray-300 prose-strong:dark:text-gray-300 prose-em:dark:text-gray-300 prose-a:dark:text-gray-300 prose-a:hover:dark:text-gray-300 prose-a:active:dark:text-gray-300 prose-a:focus:dark:text-gray-300 prose-a:visited:dark:text-gray-300 prose-a:link:dark:text-gray-300">
             {article.fields.body}
           </ReactMarkdown>
         </section>
@@ -87,7 +87,7 @@ export const getStaticPaths = async () => {
   });
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 

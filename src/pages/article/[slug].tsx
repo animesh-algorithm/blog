@@ -1,9 +1,8 @@
 import React from "react";
-import fetchArticles from "utils/fetchArticles";
 import ReactMarkdown from "react-markdown";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import ubuntu from "utils/loadFonts";
+import checkEnvironment from "utils/checkEnvironment";
 
 interface Props {
   item: any;
@@ -15,39 +14,37 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
   const [article, setArticle] = React.useState(item);
 
   React.useEffect(() => {
+    async function fetchArticle() {
+      const res = await fetch(checkEnvironment().concat("/api/notion"));
+      const items = await res.json();
+      const articles = items["data"];
+      const article = articles.find((article: any) => article.slug === slug);
+      setArticle(article);
+    }
     if (slug) {
-      fetchArticles().then((articles) => {
-        const article = articles.find(
-          (article: any) => article.fields.slug === slug
-        );
-        setArticle(article);
-      });
+      fetchArticle();
     }
   }, [article]);
   return (
     <>
       <Head>
-        <title>{article?.fields.title}</title>
-        <meta name="description" content={article?.fields.summary} />
-        <meta name="keywords" content={article?.fields.tags} />
+        <title>{article?.title}</title>
+        <meta name="description" content={article?.summary} />
+        <meta name="keywords" content={article?.tags} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="Animesh Sharma" />
       </Head>
       <article
-        className={`${ubuntu.className} min-h-screen container mx-auto sm:w-3/4 md:w-3/4 lg:w-3/4`}
+        className={`min-h-screen container mx-auto sm:w-3/4 md:w-3/4 lg:w-3/4`}
       >
         <h1 className="m-4 mt-8 text-5xl font-bold text-gray-800 dark:text-gray-100">
-          {article.fields.title}
+          {article.title}
         </h1>
         <p className="m-4 mt-1 text-lg text-gray-600 dark:text-gray-400">
-          {new Date(article.fields.createdAt).toLocaleDateString("en-US", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          })}
+          {article.date}
         </p>
         <div className="flex flex-row items-center justify-start m-4 mt-2">
-          {article.fields.tags.map((tag: string) => (
+          {article.tags.map((tag: string) => (
             <span
               key={tag}
               className="px-2 py-1 mr-2 text-sm font-semibold text-gray-600 bg-gray-200 rounded-full dark:text-gray-400 dark:bg-gray-800"
@@ -59,7 +56,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
 
         <section className="m-4 mt-6 text-gray-800 dark:text-gray-400">
           <ReactMarkdown className="leading-8 prose prose-xl text-gray-800 dark:text-gray-400 prose-headings:text-gray-700 prose-headings:dark:text-gray-300 prose-code:dark:text-gray-300 prose-strong:dark:text-gray-300 prose-em:dark:text-gray-300 prose-a:dark:text-gray-300 prose-a:hover:dark:text-gray-300 prose-a:active:dark:text-gray-300 prose-a:focus:dark:text-gray-300 prose-a:visited:dark:text-gray-300 prose-a:link:dark:text-gray-300">
-            {article.fields.body}
+            {article.description}
           </ReactMarkdown>
         </section>
       </article>
@@ -69,8 +66,9 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
 
 export const getStaticProps = async (context: any) => {
   const { slug } = context.params;
-  const items = await fetchArticles();
-  const item = items.find((item: any) => item.fields.slug === slug);
+  const res = await fetch(checkEnvironment().concat("/api/notion"));
+  const items = await res.json();
+  const item = items["data"].find((item: any) => item.slug === slug);
   return {
     props: {
       item,
@@ -79,10 +77,12 @@ export const getStaticProps = async (context: any) => {
 };
 
 export const getStaticPaths = async () => {
-  const articles = await fetchArticles();
+  const res = await fetch(checkEnvironment().concat("/api/notion"));
+  const items = await res.json();
+  const articles = items["data"];
   const paths = articles.map((article: any) => {
     return {
-      params: { slug: article.fields.slug },
+      params: { slug: article.slug },
     };
   });
   return {

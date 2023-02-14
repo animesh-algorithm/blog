@@ -1,11 +1,10 @@
 import Link from "next/link";
 import DarkModeSwitch from "./DarkModeSwitch";
-import ubuntu from "utils/loadFonts";
 
 const Header = () => {
   return (
     <header
-      className={`${ubuntu.className} flex flex-row justify-between items-center w-full px-4 py-4 mt-4 container mx-auto sm:w-3/4 md:w-3/4 lg:w-3/4
+      className={`flex flex-row justify-between items-center w-full px-4 py-4 mt-4 container mx-auto sm:w-3/4 md:w-3/4 lg:w-3/4
 `}
     >
       <h1 className="text-4xl font-bold text-center text-gray-800 dark:text-gray-100">

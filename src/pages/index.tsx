@@ -1,9 +1,7 @@
 import Head from "next/head";
-import Header from "components/Header";
 import React from "react";
 import Articles from "components/Articles";
-import fetchArticles from "utils/fetchArticles";
-import ubuntu from "utils/loadFonts";
+import checkEnvironment from "utils/checkEnvironment";
 
 interface Props {
   items: any;
@@ -12,8 +10,17 @@ interface Props {
 const Home: React.FC<Props> = ({ items }) => {
   const [articles, setArticles] = React.useState(items);
   React.useEffect(() => {
-    fetchArticles().then((articles) => setArticles(articles));
-  }, [articles]);
+    async function fetchArticles() {
+      try {
+        const res = await fetch(checkEnvironment().concat("/api/notion"));
+        const articles = await res.json();
+        setArticles(articles["data"]);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchArticles();
+  }, [items]);
   return (
     <>
       <Head>
@@ -40,7 +47,6 @@ const Home: React.FC<Props> = ({ items }) => {
       </Head>
       <main
         className={`
-          ${ubuntu.className}
           min-h-screen
           container mx-auto sm:w-3/4 md:w-3/4 lg:w-3/4
         `}
@@ -53,10 +59,11 @@ const Home: React.FC<Props> = ({ items }) => {
 };
 
 export const getStaticProps = async () => {
-  const items = await fetchArticles();
+  const res = await fetch(checkEnvironment().concat("/api/notion"));
+  const items = await res.json();
   return {
     props: {
-      items,
+      items: items["data"],
     },
   };
 };

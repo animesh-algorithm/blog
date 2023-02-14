@@ -1,0 +1,76 @@
+import { Client } from "@notionhq/client";
+export const getAllPublished = async () => {
+  const notion = new Client({
+    auth: process.env.NOTION_SECRET,
+    baseUrl: "https://api.notion.com",
+  });
+  const posts = await notion.databases.query({
+    auth: process.env.NOTION_SECRET,
+    database_id: process.env.DATABASE_ID!,
+    filter: {
+      property: "published",
+      checkbox: {
+        equals: true,
+      },
+    },
+    sorts: [
+      {
+        property: "createdAt",
+        direction: "descending",
+      },
+    ],
+  });
+  const allPosts = posts.results;
+  return allPosts.map((post: any) => {
+    return getPageMetaData(post);
+  });
+};
+
+const getPageMetaData = (post: any) => {
+  const getTags = (tags: any) => {
+    const allTags = tags.map((tag: any) => {
+      return tag.name;
+    });
+
+    return allTags;
+  };
+
+  return {
+    id: post.id,
+    title: post.properties.title.title[0].plain_text,
+    tags: getTags(post.properties.tags.multi_select),
+    description: post.properties.description.rich_text[0].plain_text,
+    date: getToday(post.properties.createdAt.last_edited_time),
+    slug: post.properties.slug.rich_text[0].plain_text,
+  };
+};
+
+function getToday(datestring: any) {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  let date = new Date();
+
+  if (datestring) {
+    date = new Date(datestring);
+  }
+
+  const day = date.getDate();
+  const month = months[date.getMonth()];
+  const year = date.getFullYear();
+  let today = `${month} ${day}, ${year}`;
+
+  return today;
+}

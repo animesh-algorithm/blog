@@ -1,15 +1,16 @@
 import { Client } from "@notionhq/client";
 const { NotionToMarkdown } = require("notion-to-md");
 const notion = new Client({
-  auth: "secret_fb71OYQGOTTkjNtfN8xk8KzgwpR02iwlCXm6Bkiqdry",
+  auth: process.env.NOTION_SECRET,
   baseUrl: "https://api.notion.com",
 });
+
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
 export const getAllPublished = async () => {
   const posts = await notion.databases.query({
-    auth: "secret_fb71OYQGOTTkjNtfN8xk8KzgwpR02iwlCXm6Bkiqdry",
-    database_id: "9493540287b140d0b776a4e884864c2a",
+    auth: process.env.NOTION_SECRET,
+    database_id: process.env.DATABASE_ID!,
     filter: {
       property: "published",
       checkbox: {
@@ -80,7 +81,7 @@ function getToday(datestring: any) {
 
 export const getSinglePost = async (slug: string) => {
   const response = await notion.databases.query({
-    database_id: "9493540287b140d0b776a4e884864c2a",
+    database_id: process.env.DATABASE_ID!,
     filter: {
       property: "slug",
       formula: {

@@ -1,6 +1,7 @@
 {
   "name": "myblog",
   "version": "0.1.0",
+  "description": "My personal blog",
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import checkEnvironment from "utils/checkEnvironment";
+import { getAllPublished, getSinglePost } from "utils/fetchArticlesFromNotion";
 
 interface Props {
   item: any;
@@ -67,21 +68,16 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
 
 export const getStaticProps = async (context: any) => {
   const { slug } = context.params;
-  const res = await fetch(
-    checkEnvironment().concat("/api/notion/article?slug=" + slug)
-  );
-  const item = await res.json();
+  const item = await getSinglePost(slug as string);
   return {
     props: {
-      item: item["data"],
+      item,
     },
   };
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(checkEnvironment().concat("/api/notion"));
-  const items = await res.json();
-  const articles = items["data"];
+  const articles = await getAllPublished();
   const paths = articles.map((article: any) => {
     return {
       params: { slug: article.slug },

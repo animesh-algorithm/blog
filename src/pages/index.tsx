@@ -2,6 +2,7 @@ import Head from "next/head";
 import React from "react";
 import Articles from "components/Articles";
 import checkEnvironment from "utils/checkEnvironment";
+import { getAllPublished } from "utils/fetchArticlesFromNotion";
 
 interface Props {
   items: any;
@@ -59,11 +60,10 @@ const Home: React.FC<Props> = ({ items }) => {
 };
 
 export const getStaticProps = async () => {
-  const res = await fetch(checkEnvironment().concat("/api/notion"));
-  const items = await res.json();
+  const items = await getAllPublished();
   return {
     props: {
-      items: items["data"],
+      items,
     },
   };
 };

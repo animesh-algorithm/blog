@@ -21,7 +21,7 @@ const Home: React.FC<Props> = ({ items }) => {
       }
     }
     fetchArticles();
-  }, [items]);
+  }, [articles]);
   return (
     <>
       <Head>

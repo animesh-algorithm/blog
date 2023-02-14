@@ -10,7 +10,7 @@ const Articles: React.FC<Props> = ({ articles }) => {
     <section
       className={`mt-8 ml-2 flex flex-col justify-center w-full px-4 py-4`}
     >
-      {articles?.map((article: any) => (
+      {articles.map((article: any) => (
         <Article key={article.slug} article={article} />
       ))}
     </section>

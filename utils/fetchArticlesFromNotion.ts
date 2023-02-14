@@ -1,9 +1,12 @@
 import { Client } from "@notionhq/client";
+const { NotionToMarkdown } = require("notion-to-md");
+const notion = new Client({
+  auth: process.env.NOTION_SECRET,
+  baseUrl: "https://api.notion.com",
+});
+const n2m = new NotionToMarkdown({ notionClient: notion });
+
 export const getAllPublished = async () => {
-  const notion = new Client({
-    auth: process.env.NOTION_SECRET,
-    baseUrl: "https://api.notion.com",
-  });
   const posts = await notion.databases.query({
     auth: process.env.NOTION_SECRET,
     database_id: process.env.DATABASE_ID!,
@@ -74,3 +77,27 @@ function getToday(datestring: any) {
 
   return today;
 }
+
+export const getSinglePost = async (slug: string) => {
+  const response = await notion.databases.query({
+    database_id: process.env.DATABASE_ID!,
+    filter: {
+      property: "slug",
+      formula: {
+        string: {
+          equals: slug,
+        },
+      },
+    },
+  });
+
+  const page = response.results[0];
+  const metadata = getPageMetaData(page);
+  const mdblocks = await n2m.pageToMarkdown(page.id);
+  const mdString = n2m.toMarkdownString(mdblocks);
+
+  return {
+    metadata,
+    markdown: mdString,
+  };
+};

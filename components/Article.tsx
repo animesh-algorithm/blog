@@ -25,7 +25,7 @@ const Article: React.FC<Props> = ({ article }) => {
 
       {/* Tags */}
       <div className="flex flex-row justify-start items-center mt-2">
-        {article.tags.map((tag: string) => (
+        {article?.tags?.map((tag: string) => (
           <span
             key={tag}
             className="

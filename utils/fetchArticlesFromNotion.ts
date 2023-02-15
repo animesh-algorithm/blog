@@ -25,14 +25,14 @@ export const getAllPublished = async () => {
     ],
   });
   const allPosts = posts.results;
-  return allPosts.map((post: any) => {
+  return allPosts?.map((post: any) => {
     return getPageMetaData(post);
   });
 };
 
 const getPageMetaData = (post: any) => {
   const getTags = (tags: any) => {
-    const allTags = tags.map((tag: any) => {
+    const allTags = tags?.map((tag: any) => {
       return tag.name;
     });
 

@@ -69,7 +69,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
         "
         >
           <h1 className="m-4 mt-8 text-5xl font-bold text-gray-800 dark:text-gray-100">
-            {article.metadata.title}
+            {article?.metadata.title}
           </h1>
           <div
             className="
@@ -106,7 +106,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
               •
             </span>
             <p className="sm:m-1 md:m-4 sm:mt-1 md:mt-3 ml-3 text-lg text-gray-600 dark:text-gray-400">
-              {article.metadata.date}
+              {article?.metadata.date}
             </p>
           </div>
 
@@ -115,7 +115,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
             m-4
            "
           >
-            {article.metadata.tags.map((tag: string) => (
+            {article?.metadata?.tags?.map((tag: string) => (
               <span
                 key={tag}
                 className="px-2 py-1 mr-2 text-sm font-semibold text-gray-600 bg-gray-200 rounded-full dark:text-gray-400 dark:bg-gray-800"
@@ -152,7 +152,7 @@ export const getStaticProps = async (context: any) => {
 
 export const getStaticPaths = async () => {
   const articles = await getAllPublished();
-  const paths = articles.map((article: any) => {
+  const paths = articles?.map((article: any) => {
     return {
       params: { slug: article.slug },
     };

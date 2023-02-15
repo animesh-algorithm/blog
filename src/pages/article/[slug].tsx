@@ -36,6 +36,21 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
         <meta name="keywords" content={article?.metadata.tags} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="Animesh Sharma" />
+        <meta
+          name="image"
+          property="og:image"
+          content={article?.metadata.thumbnail}
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`https://blog.animesharma3.com/${article?.metadata.slug}`}
+        />
+        <meta property="og:title" content={article?.metadata.title} />
+        <meta
+          property="og:description"
+          content={article?.metadata.description}
+        />
       </Head>
       <article
         className={`min-h-screen container mx-auto sm:w-3/4 md:w-3/4 lg:w-3/4`}

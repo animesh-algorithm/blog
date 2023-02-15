@@ -46,6 +46,7 @@ const getPageMetaData = (post: any) => {
     description: post.properties.description.rich_text[0].plain_text,
     date: getToday(post.properties.createdAt.last_edited_time),
     slug: post.properties.slug.rich_text[0].plain_text,
+    thumbnail: post.properties.thumbnail.files[0].file.url,
   };
 };
 

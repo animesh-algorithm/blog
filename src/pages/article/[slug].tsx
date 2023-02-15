@@ -47,6 +47,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           layout="intrinsic"
           alt={article?.metadata.title}
           className="m-4 rounded-lg shadow-lg
+          text-center
           dark:shadow-none
           dark:rounded-lg
           dark:border-none
@@ -85,7 +86,10 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           </div>
         </section>
 
-        <section className="m-4 mt-6 prose prose-xl text-gray-800 dark:text-gray-400 prose-headings:text-gray-700 prose-headings:dark:text-gray-300 prose-code:dark:text-gray-300 prose-strong:dark:text-gray-300 prose-em:dark:text-gray-300 prose-a:dark:text-gray-300 prose-a:hover:dark:text-gray-300 prose-a:active:dark:text-gray-300 prose-a:focus:dark:text-gray-300 prose-a:visited:dark:text-gray-300 prose-a:link:dark:text-gray-300 max-w-none">
+        <section
+          className="m-4 mt-6 prose prose-xl text-gray-800 dark:text-gray-400 prose-headings:text-gray-700 prose-headings:dark:text-gray-300 prose-code:dark:text-gray-300 prose-strong:dark:text-gray-300 prose-em:dark:text-gray-300 prose-a:dark:text-gray-300 prose-a:hover:dark:text-gray-300 prose-a:active:dark:text-gray-300 prose-a:focus:dark:text-gray-300 prose-a:visited:dark:text-gray-300 prose-a:link:dark:text-gray-300 max-w-none break-words
+        "
+        >
           <ReactMarkdown className="leading-8">
             {article.markdown}
           </ReactMarkdown>

@@ -32,6 +32,7 @@ const Home: React.FC<Props> = ({ items }) => {
         <meta property="og:url" content="https://blog.animesharma3.com" />
         <meta property="og:title" content="Animesh Sharma Blog" />
         <meta property="og:description" content="Animesh Sharma Blog" />
+        <meta name="image" property="og:image" content="/favicon.ico" />
         <meta property="twitter:url" content="https://blog.animesharma3.com" />
         <meta property="twitter:title" content="Animesh Sharma Blog" />
         <meta property="twitter:description" content="Animesh Sharma Blog" />

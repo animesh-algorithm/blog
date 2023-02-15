@@ -73,7 +73,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           </h1>
           <div
             className="
-          flex flex-row justify-center items-center
+          lg:flex lg:flex-row md:flex md:flex-row justify-center items-center
           "
           >
             <Link
@@ -81,7 +81,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="flex flex-row justify-center items-center">
+              <div className="flex flex-row justify-center items-center text-center">
                 <Image
                   src="/rain.jpeg"
                   width={50}
@@ -98,8 +98,14 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
                 </p>
               </div>
             </Link>
-            •
-            <p className="m-4 mt-3 ml-3 text-lg text-gray-600 dark:text-gray-400">
+            <span
+              className="
+              invisible md:visible
+             "
+            >
+              •
+            </span>
+            <p className="sm:m-1 md:m-4 sm:mt-1 md:mt-3 ml-3 text-lg text-gray-600 dark:text-gray-400">
               {article.metadata.date}
             </p>
           </div>

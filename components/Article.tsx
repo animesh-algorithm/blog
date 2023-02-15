@@ -8,7 +8,7 @@ const Article: React.FC<Props> = ({ article }) => {
   return (
     <article className={`flex flex-col justify-center w-full mb-10`}>
       {/* Title */}
-      <Link href={`/article/${article.slug}`}>
+      <Link href={`/article/${article?.slug}`}>
         <h1
           className="
           text-4xl
@@ -16,12 +16,12 @@ const Article: React.FC<Props> = ({ article }) => {
           hover:underline
         "
         >
-          {article.title}
+          {article?.title}
         </h1>
       </Link>
 
       {/* Created At */}
-      <p className="text-gray-600 dark:text-gray-400 mt-2">{article.date}</p>
+      <p className="text-gray-600 dark:text-gray-400 mt-2">{article?.date}</p>
 
       {/* Tags */}
       <div className="flex flex-row justify-start items-center mt-2">
@@ -48,10 +48,10 @@ const Article: React.FC<Props> = ({ article }) => {
 
       {/* Article Preview */}
       <div className="mt-4 text-md leading-relaxed text-gray-800 dark:text-gray-400 ">
-        {article.description}
+        {article?.description}
         {/* Read More */}
         <br />
-        <Link href={`/article/${article.slug}`}>
+        <Link href={`/article/${article?.slug}`}>
           <span className="text-blue-500 hover:underline">Read More</span>
         </Link>
       </div>

@@ -146,7 +146,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
         "
         >
           <ReactMarkdown className="leading-8">
-            {article.markdown}
+            {article?.markdown}
           </ReactMarkdown>
         </section>
       </article>

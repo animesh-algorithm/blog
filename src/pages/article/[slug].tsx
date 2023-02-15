@@ -44,7 +44,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           src={article?.metadata.thumbnail}
           width={1280}
           height={720}
-          layout="intrinsic"
+          layout="responsive"
           alt={article?.metadata.title}
           className="m-4 rounded-lg shadow-lg
           text-center

@@ -47,7 +47,7 @@ const Article: React.FC<Props> = ({ article }) => {
       </div>
 
       {/* Article Preview */}
-      <div className="mt-4 text-md leading-relaxed text-gray-800 dark:text-gray-300 ">
+      <div className="mt-4 text-md leading-relaxed text-gray-800 dark:text-gray-400 ">
         {article.description}
         {/* Read More */}
         <br />

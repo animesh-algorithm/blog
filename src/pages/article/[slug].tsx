@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import checkEnvironment from "utils/checkEnvironment";
 import { getAllPublished, getSinglePost } from "utils/fetchArticlesFromNotion";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 interface Props {
   item: any;

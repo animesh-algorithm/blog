@@ -6,6 +6,23 @@ import checkEnvironment from "utils/checkEnvironment";
 import { getAllPublished, getSinglePost } from "utils/fetchArticlesFromNotion";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+  RedditShareButton,
+  WhatsappShareButton,
+  EmailShareButton,
+} from "react-share";
+
+import {
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+  RedditIcon,
+  WhatsappIcon,
+  EmailIcon,
+} from "react-share";
 
 interface Props {
   item: any;
@@ -138,6 +155,53 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
                 {tag}
               </span>
             ))}
+          </div>
+          <div
+            className="
+            space-x-1 text-center
+            "
+          >
+            <FacebookShareButton
+              url={`https://blog.animesharma3.com/${article?.metadata.slug}`}
+              quote={article?.metadata.title}
+              hashtag="#animeshsharma"
+            >
+              <FacebookIcon size={32} round={true} />
+            </FacebookShareButton>
+            <TwitterShareButton
+              url={`https://blog.animesharma3.com/${article?.metadata.slug}`}
+              title={article?.metadata.title}
+              hashtags={["animeshsharma"]}
+            >
+              <TwitterIcon size={32} round={true} />
+            </TwitterShareButton>
+            <LinkedinShareButton
+              url={`https://blog.animesharma3.com/${article?.metadata.slug}`}
+              title={article?.metadata.title}
+              summary={article?.metadata.description}
+              source="https://blog.animesharma3.com"
+            >
+              <LinkedinIcon size={32} round={true} />
+            </LinkedinShareButton>
+            <RedditShareButton
+              url={`https://blog.animesharma3.com/${article?.metadata.slug}`}
+              title={article?.metadata.title}
+            >
+              <RedditIcon size={32} round={true} />
+            </RedditShareButton>
+            <WhatsappShareButton
+              url={`https://blog.animesharma3.com/${article?.metadata.slug}`}
+              title={article?.metadata.title}
+            >
+              <WhatsappIcon size={32} round={true} />
+            </WhatsappShareButton>
+            <EmailShareButton
+              url={`https://blog.animesharma3.com/${article?.metadata.slug}`}
+              subject={article?.metadata.title}
+              body={article?.metadata.description}
+            >
+              <EmailIcon size={32} round={true} />
+            </EmailShareButton>
           </div>
         </section>
 

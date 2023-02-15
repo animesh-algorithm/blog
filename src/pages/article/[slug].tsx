@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import checkEnvironment from "utils/checkEnvironment";
 import { getAllPublished, getSinglePost } from "utils/fetchArticlesFromNotion";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 interface Props {
   item: any;
@@ -44,9 +44,8 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           src={article?.metadata.thumbnail}
           width={1280}
           height={720}
-          layout="responsive"
           alt={article?.metadata.title}
-          className="m-4 rounded-lg shadow-lg
+          className="rounded-lg shadow-lg
           text-center
           dark:shadow-none
           dark:rounded-lg

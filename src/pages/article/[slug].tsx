@@ -105,7 +105,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
             >
               •
             </span>
-            <p className="sm:m-1 md:m-4 sm:mt-1 md:mt-3 ml-3 text-lg text-gray-600 dark:text-gray-400">
+            <p className="sm:m-1 md:m-4 sm:mt-1 md:mt-3 md:ml-3 lg:ml-3 ml-3 text-lg text-gray-600 dark:text-gray-400">
               {article?.metadata.date}
             </p>
           </div>

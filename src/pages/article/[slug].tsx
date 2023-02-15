@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import checkEnvironment from "utils/checkEnvironment";
 import { getAllPublished, getSinglePost } from "utils/fetchArticlesFromNotion";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props {
   item: any;
@@ -70,10 +71,44 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           <h1 className="m-4 mt-8 text-5xl font-bold text-gray-800 dark:text-gray-100">
             {article.metadata.title}
           </h1>
-          <p className="m-4 mt-1 text-lg text-gray-600 dark:text-gray-400">
-            {article.metadata.date}
-          </p>
-          <div>
+          <div
+            className="
+          flex flex-row justify-center items-center
+          "
+          >
+            <Link
+              href="https://www.linkedin.com/in/animesharma3/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="flex flex-row justify-center items-center">
+                <Image
+                  src="/rain.jpeg"
+                  width={50}
+                  height={50}
+                  alt="Animesh Sharma"
+                  className="rounded-full"
+                />
+                <p
+                  className="m-2 mt-1 mr-3 text-lg text-gray-600 dark:text-gray-400
+                hover:text-gray-800 dark:hover:text-gray-200
+                "
+                >
+                  Animesh Sharma
+                </p>
+              </div>
+            </Link>
+            •
+            <p className="m-4 mt-3 ml-3 text-lg text-gray-600 dark:text-gray-400">
+              {article.metadata.date}
+            </p>
+          </div>
+
+          <div
+            className="
+            m-4
+           "
+          >
             {article.metadata.tags.map((tag: string) => (
               <span
                 key={tag}

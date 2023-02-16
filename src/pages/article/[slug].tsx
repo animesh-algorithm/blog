@@ -44,7 +44,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
       } catch (err) {
         console.log(err);
       }
-    }, 60000);
+    }, 10000);
 
     return () => clearTimeout(intervedId);
   }, []);
@@ -82,42 +82,19 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           width={1280}
           height={720}
           alt={article?.metadata.title}
-          className="rounded-lg shadow-lg
-          text-center
-          dark:shadow-none
-          dark:rounded-lg
-          dark:border-none
-          dark:border-gray-800
-          dark:border-opacity-20
-          dark:bg-gray-800
-          dark:bg-opacity-20
-          dark:hover:bg-opacity-40
-          dark:hover:shadow-lg
-          dark:hover:border-opacity-40
-          dark:transition-all
-          dark:duration-300
-          dark:ease-in-out
-          "
+          className="text-center rounded-lg shadow-lg dark:shadow-none dark:rounded-lg dark:border-none dark:border-gray-800 dark:border-opacity-20 dark:bg-gray-800 dark:bg-opacity-20 dark:hover:bg-opacity-40 dark:hover:shadow-lg dark:hover:border-opacity-40 dark:transition-all dark:duration-300 dark:ease-in-out "
         />
-        <section
-          className="
-          text-center
-        "
-        >
+        <section className="text-center ">
           <h1 className="m-4 mt-8 text-5xl font-bold text-gray-800 dark:text-gray-100">
             {article?.metadata.title}
           </h1>
-          <div
-            className="
-          lg:flex lg:flex-row md:flex md:flex-row justify-center items-center
-          "
-          >
+          <div className="items-center justify-center  lg:flex lg:flex-row md:flex md:flex-row">
             <Link
               href="https://www.linkedin.com/in/animesharma3/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="flex flex-row justify-center items-center text-center">
+              <div className="flex flex-row items-center justify-center text-center">
                 <Image
                   src="/rain.jpeg"
                   width={50}
@@ -125,32 +102,18 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
                   alt="Animesh Sharma"
                   className="rounded-full"
                 />
-                <p
-                  className="m-2 mt-1 mr-3 text-lg text-gray-600 dark:text-gray-400
-                hover:text-gray-800 dark:hover:text-gray-200
-                "
-                >
+                <p className="m-2 mt-1 mr-3 text-lg text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 ">
                   Animesh Sharma
                 </p>
               </div>
             </Link>
-            <span
-              className="
-              invisible md:visible
-             "
-            >
-              •
-            </span>
-            <p className="sm:m-1 md:m-4 sm:mt-1 md:mt-3 md:ml-3 lg:ml-3 ml-3 text-lg text-gray-600 dark:text-gray-400">
+            <span className="invisible  md:visible">•</span>
+            <p className="ml-3 text-lg text-gray-600 sm:m-1 md:m-4 sm:mt-1 md:mt-3 md:ml-3 lg:ml-3 dark:text-gray-400">
               {article?.metadata.date}
             </p>
           </div>
 
-          <div
-            className="
-            m-4
-           "
-          >
+          <div className="m-4 ">
             {article?.metadata?.tags?.map((tag: string) => (
               <span
                 key={tag}
@@ -160,11 +123,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
               </span>
             ))}
           </div>
-          <div
-            className="
-            space-x-1 text-center
-            "
-          >
+          <div className="space-x-1 text-center ">
             <FacebookShareButton
               url={`https://blog.animesharma3.com/${article?.metadata.slug}`}
               quote={article?.metadata.title}
@@ -209,10 +168,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           </div>
         </section>
 
-        <section
-          className="m-4 mt-6 prose prose-xl text-gray-800 dark:text-gray-400 prose-headings:text-gray-700 prose-headings:dark:text-gray-300 prose-code:dark:text-gray-300 prose-strong:dark:text-gray-300 prose-em:dark:text-gray-300 prose-a:dark:text-gray-300 prose-a:hover:dark:text-gray-300 prose-a:active:dark:text-gray-300 prose-a:focus:dark:text-gray-300 prose-a:visited:dark:text-gray-300 prose-a:link:dark:text-gray-300 max-w-none break-words
-        "
-        >
+        <section className="m-4 mt-6 prose prose-xl text-gray-800 break-words dark:text-gray-400 prose-headings:text-gray-700 prose-headings:dark:text-gray-300 prose-code:dark:text-gray-300 prose-strong:dark:text-gray-300 prose-em:dark:text-gray-300 prose-a:dark:text-gray-300 prose-a:hover:dark:text-gray-300 prose-a:active:dark:text-gray-300 prose-a:focus:dark:text-gray-300 prose-a:visited:dark:text-gray-300 prose-a:link:dark:text-gray-300 max-w-none ">
           <ReactMarkdown className="leading-8">
             {article?.markdown}
           </ReactMarkdown>

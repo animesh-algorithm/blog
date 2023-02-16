@@ -38,13 +38,13 @@ const getPageMetaData = (post: any) => {
 
     return allTags;
   };
-
+  console.log(post.properties.createdAt);
   return {
     id: post.id,
     title: post.properties.title.title[0].plain_text,
     tags: getTags(post.properties.tags.multi_select),
     description: post.properties.description.rich_text[0].plain_text,
-    date: getToday(post.properties.createdAt.last_edited_time),
+    date: getToday(post.properties.createdAt.created_time),
     slug: post.properties.slug.rich_text[0].plain_text,
     thumbnail: post.properties.thumbnail.files[0].file.url,
   };

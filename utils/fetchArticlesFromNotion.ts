@@ -38,7 +38,6 @@ const getPageMetaData = (post: any) => {
 
     return allTags;
   };
-  console.log(post.properties.createdAt);
   return {
     id: post.id,
     title: post.properties.title.title[0].plain_text,

@@ -34,17 +34,21 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
   const [article, setArticle] = React.useState(item);
 
   React.useEffect(() => {
-    async function fetchArticle() {
-      const res = await fetch(
-        checkEnvironment().concat("/api/notion/article?slug=" + slug)
-      );
-      const item = await res.json();
-      setArticle(item["data"]);
-    }
-    if (slug) {
-      fetchArticle();
-    }
-  }, [article]);
+    const intervedId = setInterval(async () => {
+      try {
+        const res = await fetch(
+          checkEnvironment().concat(`/api/notion/article?slug=${slug}`)
+        );
+        const article = await res.json();
+        setArticle(article["data"]);
+      } catch (err) {
+        console.log(err);
+      }
+    }, 60000);
+
+    return () => clearTimeout(intervedId);
+  }, []);
+
   return (
     <>
       <Head>

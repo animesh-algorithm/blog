@@ -11,17 +11,17 @@ interface Props {
 const Home: React.FC<Props> = ({ items }) => {
   const [articles, setArticles] = React.useState(items);
   React.useEffect(() => {
-    async function fetchArticles() {
+    const intervalId = setInterval(async () => {
       try {
         const res = await fetch(checkEnvironment().concat("/api/notion"));
         const articles = await res.json();
         setArticles(articles["data"]);
-      } catch (error) {
-        console.log(error);
+      } catch (err) {
+        console.log(err);
       }
-    }
-    fetchArticles();
-  }, [articles]);
+    }, 60000);
+    return () => clearInterval(intervalId);
+  }, []);
   return (
     <>
       <Head>

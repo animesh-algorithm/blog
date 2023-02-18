@@ -114,7 +114,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
             </p>
           </div>
 
-          <div className="m-4 ">
+          <div className="m-4 flex flex-row flex-wrap justify-center items-center">
             {article?.metadata?.tags?.map((tag: string) => (
               <span
                 key={tag}

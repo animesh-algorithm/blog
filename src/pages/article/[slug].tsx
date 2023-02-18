@@ -15,6 +15,8 @@ import {
   EmailShareButton,
 } from "react-share";
 
+import remarkGfm from "remark-gfm";
+
 import {
   FacebookIcon,
   TwitterIcon,
@@ -44,7 +46,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
       } catch (err) {
         console.log(err);
       }
-    }, 2000);
+    }, 10000);
 
     return () => clearTimeout(intervedId);
   }, []);
@@ -195,7 +197,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           prose-img:dark:hover:ring-inset
         "
         >
-          <ReactMarkdown className="leading-8">
+          <ReactMarkdown className="leading-8" remarkPlugins={[remarkGfm]}>
             {article?.markdown}
           </ReactMarkdown>
         </section>

@@ -44,7 +44,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
       } catch (err) {
         console.log(err);
       }
-    }, 10000);
+    }, 2000);
 
     return () => clearTimeout(intervedId);
   }, []);
@@ -88,7 +88,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           <h1 className="m-4 mt-8 text-5xl font-bold text-gray-800 dark:text-gray-100">
             {article?.metadata.title}
           </h1>
-          <div className="items-center justify-center  lg:flex lg:flex-row md:flex md:flex-row">
+          <div className="items-center justify-center lg:flex lg:flex-row md:flex md:flex-row">
             <Link
               href="https://www.linkedin.com/in/animesharma3/"
               target="_blank"
@@ -107,7 +107,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
                 </p>
               </div>
             </Link>
-            <span className="invisible  md:visible">•</span>
+            <span className="invisible md:visible">•</span>
             <p className="ml-3 text-lg text-gray-600 sm:m-1 md:m-4 sm:mt-1 md:mt-3 md:ml-3 lg:ml-3 dark:text-gray-400">
               {article?.metadata.date}
             </p>
@@ -168,7 +168,32 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           </div>
         </section>
 
-        <section className="m-4 mt-6 prose prose-xl text-gray-800 break-words dark:text-gray-400 prose-headings:text-gray-700 prose-headings:dark:text-gray-300 prose-code:dark:text-gray-300 prose-strong:dark:text-gray-300 prose-em:dark:text-gray-300 prose-a:dark:text-gray-300 prose-a:hover:dark:text-gray-300 prose-a:active:dark:text-gray-300 prose-a:focus:dark:text-gray-300 prose-a:visited:dark:text-gray-300 prose-a:link:dark:text-gray-300 max-w-none ">
+        <section
+          className="m-4 mt-6 prose prose-xl text-gray-800 break-words dark:text-gray-400 prose-headings:text-gray-700 prose-headings:dark:text-gray-300 prose-code:dark:text-gray-300 prose-strong:dark:text-gray-300 prose-em:dark:text-gray-300 prose-a:dark:text-gray-300 prose-a:hover:dark:text-gray-300 prose-a:active:dark:text-gray-300 prose-a:focus:dark:text-gray-300 prose-a:visited:dark:text-gray-300 prose-a:link:dark:text-gray-300 prose-table:dark:text-blue-500 max-w-none 
+          prose-blockquote:dark:text-gray-300
+          prose-blockquote:font-bold
+          prose-img:mx-auto
+          prose-img:shadow-lg
+          prose-img:dark:shadow-none
+          prose-img:dark:rounded-lg
+          prose-img:dark:border-none
+          prose-img:dark:border-gray-800
+          prose-img:dark:border-opacity-20
+          prose-img:dark:bg-gray-800
+          prose-img:dark:bg-opacity-20
+          prose-img:dark:hover:bg-opacity-40
+          prose-img:dark:hover:shadow-lg
+          prose-img:dark:hover:rounded-lg
+          prose-img:dark:hover:border-opacity-40
+          prose-img:dark:hover:ring-2
+          prose-img:dark:hover:ring-offset-2
+          prose-img:dark:hover:ring-offset-gray-800
+          prose-img:dark:hover:ring-offset-opacity-20
+          prose-img:dark:hover:ring-gray-300
+          prose-img:dark:hover:ring-opacity-60
+          prose-img:dark:hover:ring-inset
+        "
+        >
           <ReactMarkdown className="leading-8">
             {article?.markdown}
           </ReactMarkdown>
@@ -186,7 +211,7 @@ export const getStaticProps = async (context: any) => {
     props: {
       item,
     },
-    revalidate: 10,
+    revalidate: 2,
   };
 };
 

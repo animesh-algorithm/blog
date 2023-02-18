@@ -19,7 +19,7 @@ const Home: React.FC<Props> = ({ items }) => {
       } catch (err) {
         console.log(err);
       }
-    }, 10000);
+    }, 2000);
     return () => clearInterval(intervalId);
   }, []);
   return (
@@ -66,7 +66,7 @@ export const getStaticProps = async () => {
     props: {
       items,
     },
-    revalidate: 10,
+    revalidate: 2,
   };
 };
 

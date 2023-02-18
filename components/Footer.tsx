@@ -1,7 +1,14 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { SocialIcon } from "react-social-icons";
 
 const Footer = () => {
+  const [currentYear, setCurrentYear] = useState("2023");
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear().toString());
+  }, []);
+
   return (
     <footer className="flex flex-col md:flex-row items-center justify-start w-full h-36 md:h-[100px] bg-gray-800 text-white">
       {/* Logo */}
@@ -10,7 +17,9 @@ const Footer = () => {
       </div>
       {/* Copyright */}
       <div className="flex flex-row items-center justify-center w-full h-24">
-        <p className="text-md">© 2021 Animesh Sharma. All rights reserved.</p>
+        <p className="text-md">
+          © {currentYear} Animesh Sharma. All rights reserved.
+        </p>
       </div>
       {/* Social Media */}
       <div className="flex flex-row items-center justify-center w-full h-24 space-x-1">

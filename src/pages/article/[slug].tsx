@@ -86,7 +86,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           className="text-center rounded-lg shadow-lg dark:shadow-none dark:rounded-lg dark:border-none dark:border-gray-800 dark:border-opacity-20 dark:bg-gray-800 dark:bg-opacity-20 dark:hover:bg-opacity-40 dark:hover:shadow-lg dark:hover:border-opacity-40 dark:transition-all dark:duration-300 dark:ease-in-out "
         />
         <section className="text-center ">
-          <h1 className="m-4 mt-8 text-5xl font-bold text-gray-800 dark:text-gray-100">
+          <h1 className="m-4 mt-8 text-5xl font-bold text-gray-800 dark:text-gray-100 break-words">
             {article?.metadata.title}
           </h1>
           <div className="items-center justify-center lg:flex lg:flex-row md:flex md:flex-row">

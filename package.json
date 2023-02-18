@@ -12,6 +12,7 @@
   "dependencies": {
     "@contentful/rich-text-from-markdown": "^15.16.2",
     "@contentful/rich-text-react-renderer": "^15.16.2",
+    "@heroicons/react": "^2.0.16",
     "@next/font": "13.1.6",
     "@notionhq/client": "^2.2.3",
     "@tailwindcss/typography": "^0.5.9",
@@ -30,6 +31,7 @@
     "react-ionicons": "^4.2.0",
     "react-markdown": "^8.0.5",
     "react-share": "^4.4.1",
+    "react-social-icons": "^5.15.0",
     "react-syntax-highlighter": "^15.5.0",
     "remark-gfm": "^3.0.1",
     "remarkable-react": "^1.4.3",

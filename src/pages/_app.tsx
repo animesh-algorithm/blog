@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import Header from "components/Header";
 
 import { Ubuntu } from "@next/font/google";
+import Footer from "components/Footer";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -18,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <main className={`${ubuntu.variable} font-sans`}>
         <Header />
         <Component {...pageProps} />
+        <Footer />
       </main>
     </ThemeProvider>
   );

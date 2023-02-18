@@ -39,7 +39,7 @@ const Home: React.FC<Props> = ({ items }) => {
         <meta charSet="UTF-8" />
         <meta
           name="keywords"
-          content="animesh sharma blog, programming, development, data science, tutorials, technology, trends, insights, animesh sharma, animesharma3, programming courses, programming tutorials,web development courses, web development tutorials,javascript courses, html courses, web design courses,web design tutorials, learn web development, free programming courses"
+          content="animesh sharma blog, animesh sharma, Animesh Sharma, ANIMESH SHARMA, dear dev diary, dev diary, programming, development, data science, tutorials, technology, trends, insights, programming courses, programming tutorials,web development courses, web development tutorials,javascript courses, html courses, web design courses,web design tutorials, learn web development, free programming courses"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="Animesh Sharma" />

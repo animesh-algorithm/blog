@@ -30,7 +30,7 @@ const Article: React.FC<Props> = ({ article }) => {
 
       {/* Article Preview */}
       <div className="mt-4 leading-relaxed text-gray-800 text-md dark:text-gray-400 ">
-        {article?.description}
+        {article?.description.split(" ").slice(0, 50).join(" ")}...
         {/* Read More */}
         <br />
         <Link href={`/article/${article?.slug}`}>

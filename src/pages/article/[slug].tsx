@@ -72,7 +72,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           property="og:description"
           content={article?.metadata.description}
         />
-        <link rel="preload" as="image" href={article?.metadata.thumbnail}`` />
+        <link rel="preload" as="image" href={article?.metadata.thumbnail} />
       </Head>
       <article
         className={`min-h-screen container mx-auto sm:w-3/4 md:w-3/4 lg:w-3/4`}

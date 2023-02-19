@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import ReactMarkdown from "react-markdown";
 interface Props {
   article: any;
 }

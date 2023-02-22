@@ -75,6 +75,11 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           content={article?.metadata.description}
         />
         <link rel="preload" as="image" href={article?.metadata.thumbnail} />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3628126824154315"
+          crossOrigin="anonymous"
+        />
       </Head>
       <article
         className={`min-h-screen container mx-auto sm:w-3/4 md:w-3/4 lg:w-3/4`}

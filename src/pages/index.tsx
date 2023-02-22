@@ -30,16 +30,16 @@ const Home: React.FC<Props> = ({ items }) => {
     <>
       <Head>
         <title>Animesh Sharma's Blog</title>
-        <meta name="title" content="Animesh Sharma Blog" />
-        <meta name="description" content="Animesh Sharma Blog" />
+        <meta name="title" content="Animesh Sharma's Blog" />
+        <meta name="description" content="Animesh Sharma's Blog" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://blog.animesharma3.com" />
-        <meta property="og:title" content="Animesh Sharma Blog" />
-        <meta property="og:description" content="Animesh Sharma Blog" />
+        <meta property="og:title" content="Animesh Sharma's Blog" />
+        <meta property="og:description" content="Animesh Sharma's Blog" />
         <meta name="image" property="og:image" content="/rain.jpeg" />
         <meta property="twitter:url" content="https://blog.animesharma3.com" />
-        <meta property="twitter:title" content="Animesh Sharma Blog" />
-        <meta property="twitter:description" content="Animesh Sharma Blog" />
+        <meta property="twitter:title" content="Animesh Sharma's Blog" />
+        <meta property="twitter:description" content="Animesh Sharma's Blog" />
         <meta charSet="UTF-8" />
         <meta
           name="keywords"
@@ -52,6 +52,11 @@ const Home: React.FC<Props> = ({ items }) => {
         <meta name="robots" content="index, follow" />
         <meta name="language" content="English" />
         <link rel="icon" href="/favicon.ico" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3628126824154315"
+          crossOrigin="anonymous"
+        />
       </Head>
       <main
         className={`

@@ -18,8 +18,8 @@ const Home: React.FC<Props> = ({ items }) => {
     const intervalId = setInterval(async () => {
       try {
         const res = await fetch(checkEnvironment().concat("/api/notion"));
-        const articles = await res.json();
-        setArticles(articles["data"]);
+        const items = await res.json();
+        setArticles(items["data"]);
       } catch (err) {
         console.log(err);
       }
@@ -29,7 +29,7 @@ const Home: React.FC<Props> = ({ items }) => {
   return (
     <>
       <Head>
-        <title>Animesh Sharma - Blog</title>
+        <title>Animesh Sharma's Blog</title>
         <meta name="title" content="Animesh Sharma Blog" />
         <meta name="description" content="Animesh Sharma Blog" />
         <meta property="og:type" content="website" />

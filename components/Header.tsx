@@ -8,7 +8,7 @@ const Header = () => {
 `}
     >
       <h1 className="text-4xl font-bold text-center text-gray-800 dark:text-gray-100">
-        <Link href="/">Animesh Sharma Blog</Link>
+        <Link href="/">Animesh Sharma's Blog</Link>
       </h1>
       <DarkModeSwitch />
     </header>

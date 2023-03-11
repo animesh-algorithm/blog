@@ -35,6 +35,8 @@ const Home: React.FC<Props> = ({ items }) => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://blog.animesharma3.com" />
         <meta property="og:title" content="Animesh Sharma's Blog" />
+        <meta property="og:site_name" content="Animesh Sharma" />
+        <meta property="og:image" content="/rain.jpeg" />
         <meta property="og:description" content="Animesh Sharma's Blog" />
         <meta
           property="twitter:url"
@@ -45,6 +47,7 @@ const Home: React.FC<Props> = ({ items }) => {
           property="twitter:description"
           content="Software Developer | Blogger | Teacher"
         />
+        <meta property="twitter:image" content="/rain.jpeg" />
         <meta charSet="UTF-8" />
         <meta
           name="keywords"
@@ -56,6 +59,7 @@ const Home: React.FC<Props> = ({ items }) => {
         <meta name="author" content="Animesh Sharma" />
         <meta name="robots" content="index, follow" />
         <meta name="language" content="English" />
+        meta
         <link rel="icon" href="/favicon.ico" />
         {/* <script
           async

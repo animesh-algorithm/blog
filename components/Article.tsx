@@ -16,7 +16,7 @@ const Article: React.FC<Props> = ({ article }) => {
       <p className="mt-2 text-gray-600 dark:text-gray-400">{article?.date}</p>
 
       {/* Tags */}
-      <div className="flex flex-row items-center justify-start mt-2 flex-wrap">
+      <div className="flex flex-row flex-wrap items-center justify-start mt-2">
         {article?.tags?.map((tag: string) => (
           <span
             key={tag}

@@ -25,6 +25,7 @@ import {
   WhatsappIcon,
   EmailIcon,
 } from "react-share";
+import Summary from "components/Summary";
 
 interface Props {
   item: any;
@@ -34,6 +35,32 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
   const router = useRouter();
   const { slug } = router.query;
   const [article, setArticle] = React.useState(item);
+
+  const summarizeArticle = async () => {
+    // POST request to /api/summarize
+    setArticle((article: any) => {
+      return {
+        ...article,
+        summary: "Generating Summary...",
+      };
+    });
+    const response = await fetch(checkEnvironment().concat("/api/summarize"), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        text: article?.markdown,
+      }),
+    });
+    const { summary } = await response.json();
+    setArticle((article: any) => {
+      return {
+        ...article,
+        summary,
+      };
+    });
+  };
 
   React.useEffect(() => {
     const intervedId = setInterval(async () => {
@@ -46,7 +73,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
       } catch (err) {
         console.log(err);
       }
-    }, 10000);
+    }, 60000);
 
     return () => clearTimeout(intervedId);
   }, []);
@@ -176,6 +203,21 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
           </div>
         </section>
 
+        {/* Summarize */}
+        <section>
+          {/* Summarize Button */}
+          <div className="flex flex-row items-center justify-center m-4">
+            <button
+              className="px-4 py-2 text-lg font-semibold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+              onClick={summarizeArticle}
+            >
+              Click here to Summarize
+            </button>
+          </div>
+          {/* Summarize Text */}
+          {article?.summary && <Summary summary={article?.summary} />}
+        </section>
+
         <section className="m-4 mt-6 prose prose-xl text-gray-800 break-words dark:text-gray-400 prose-headings:text-gray-700 prose-headings:dark:text-gray-300 prose-code:dark:text-gray-300 prose-strong:dark:text-gray-300 prose-em:dark:text-gray-300 prose-a:dark:text-gray-300 prose-a:hover:dark:text-gray-300 prose-a:active:dark:text-gray-300 prose-a:focus:dark:text-gray-300 prose-a:visited:dark:text-gray-300 prose-a:link:dark:text-gray-300 prose-table:dark:text-blue-500 max-w-none prose-blockquote:dark:text-gray-300 prose-blockquote:font-bold prose-img:mx-auto prose-img:shadow-lg prose-img:dark:shadow-none prose-img:dark:rounded-lg prose-img:dark:border-none prose-img:dark:border-gray-800 prose-img:dark:border-opacity-20 prose-img:dark:bg-gray-800 prose-img:dark:bg-opacity-20 prose-img:dark:hover:bg-opacity-40 prose-img:dark:hover:shadow-lg prose-img:dark:hover:rounded-lg prose-img:dark:hover:border-opacity-40 prose-img:dark:hover:ring-2 prose-img:dark:hover:ring-offset-2 prose-img:dark:hover:ring-offset-gray-800 prose-img:dark:hover:ring-offset-opacity-20 prose-img:dark:hover:ring-gray-300 prose-img:dark:hover:ring-opacity-60 prose-img:dark:hover:ring-inset ">
           <ReactMarkdown className="leading-8" remarkPlugins={[remarkGfm]}>
             {article?.markdown}
@@ -193,7 +235,7 @@ export const getStaticProps = async (context: any) => {
     props: {
       item,
     },
-    revalidate: 2,
+    revalidate: 60,
   };
 };
 

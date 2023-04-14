@@ -75,7 +75,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
       } catch (err) {
         console.log(err);
       }
-    }, 60000);
+    }, 2000);
 
     return () => clearTimeout(intervedId);
   }, []);

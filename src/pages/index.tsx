@@ -23,7 +23,7 @@ const Home: React.FC<Props> = ({ items }) => {
       } catch (err) {
         console.log(err);
       }
-    }, 60000);
+    }, 2000);
     return () => clearInterval(intervalId);
   }, []);
   return (

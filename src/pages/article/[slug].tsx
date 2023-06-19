@@ -75,7 +75,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
       } catch (err) {
         console.log(err);
       }
-    }, 2000);
+    }, 60000);
 
     return () => clearTimeout(intervedId);
   }, []);
@@ -237,7 +237,7 @@ export const getStaticProps = async (context: any) => {
     props: {
       item,
     },
-    revalidate: 60,
+    revalidate: 10,
   };
 };
 

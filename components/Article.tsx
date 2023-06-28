@@ -6,7 +6,9 @@ interface Props {
 
 const Article: React.FC<Props> = ({ article }) => {
   return (
-    <article className={`flex flex-col justify-center w-full mb-10`}>
+    <article
+      className={`flex flex-col justify-center w-full mb-10 text-justify`}
+    >
       {/* Title */}
       <Link href={`/article/${article?.slug}`}>
         <h1 className="text-4xl font-bold hover:underline">{article?.title}</h1>

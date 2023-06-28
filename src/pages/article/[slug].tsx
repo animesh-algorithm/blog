@@ -221,7 +221,10 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
         </section>
 
         <section className="m-4 mt-6 prose prose-xl text-gray-800 break-words dark:text-gray-400 prose-headings:text-gray-700 prose-headings:dark:text-gray-300 prose-code:dark:text-gray-300 prose-strong:dark:text-gray-300 prose-em:dark:text-gray-300 prose-a:dark:text-gray-300 prose-a:hover:dark:text-gray-300 prose-a:active:dark:text-gray-300 prose-a:focus:dark:text-gray-300 prose-a:visited:dark:text-gray-300 prose-a:link:dark:text-gray-300 prose-table:dark:text-blue-500 max-w-none prose-blockquote:dark:text-gray-300 prose-blockquote:font-bold prose-img:mx-auto prose-img:shadow-lg prose-img:dark:shadow-none prose-img:dark:rounded-lg prose-img:dark:border-none prose-img:dark:border-gray-800 prose-img:dark:border-opacity-20 prose-img:dark:bg-gray-800 prose-img:dark:bg-opacity-20 prose-img:dark:hover:bg-opacity-40 prose-img:dark:hover:shadow-lg prose-img:dark:hover:rounded-lg prose-img:dark:hover:border-opacity-40 prose-img:dark:hover:ring-2 prose-img:dark:hover:ring-offset-2 prose-img:dark:hover:ring-offset-gray-800 prose-img:dark:hover:ring-offset-opacity-20 prose-img:dark:hover:ring-gray-300 prose-img:dark:hover:ring-opacity-60 prose-img:dark:hover:ring-inset ">
-          <ReactMarkdown className="leading-8" remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown
+            className="leading-8 text-justify"
+            remarkPlugins={[remarkGfm]}
+          >
             {article?.markdown}
           </ReactMarkdown>
         </section>

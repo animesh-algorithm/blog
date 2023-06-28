@@ -37,7 +37,7 @@ const Summary = ({ summary }: { summary: string }) => {
   const currentWords = words.slice(0, currentWordIndex);
 
   return (
-    <article className="mt-4 leading-relaxed text-gray-800  text-md dark:text-gray-400">
+    <article className="m-4 leading-relaxed text-gray-800 text-justify text-md dark:text-gray-400">
       {currentWords.join(" ")}
     </article>
   );

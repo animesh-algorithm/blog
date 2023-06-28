@@ -28,7 +28,7 @@ const Article: React.FC<Props> = ({ article }) => {
       </div>
 
       {/* Article Preview */}
-      <div className="mt-4 leading-relaxed text-gray-800 text-md dark:text-gray-400 ">
+      <div className="mt-4 leading-relaxed text-justify text-gray-800 text-md dark:text-gray-400 ">
         {article?.description.split(" ").slice(0, 50).join(" ")}...
         {/* Read More */}
         <br />

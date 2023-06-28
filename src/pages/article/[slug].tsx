@@ -64,21 +64,21 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
     // });
   };
 
-  React.useEffect(() => {
-    const intervedId = setInterval(async () => {
-      try {
-        const res = await fetch(
-          checkEnvironment().concat(`/api/notion/article?slug=${slug}`)
-        );
-        const article = await res.json();
-        setArticle(article["data"]);
-      } catch (err) {
-        console.log(err);
-      }
-    }, 60000);
+  // React.useEffect(() => {
+  //   const intervedId = setInterval(async () => {
+  //     try {
+  //       const res = await fetch(
+  //         checkEnvironment().concat(`/api/notion/article?slug=${slug}`)
+  //       );
+  //       const article = await res.json();
+  //       setArticle(article["data"]);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   }, 60000);
 
-    return () => clearTimeout(intervedId);
-  }, []);
+  //   return () => clearTimeout(intervedId);
+  // }, []);
 
   return (
     <>

@@ -14,18 +14,18 @@ const Home: React.FC<Props> = ({ items }) => {
   const AllKeywords = useMemo(() => {
     return keywords;
   }, []);
-  React.useEffect(() => {
-    const intervalId = setInterval(async () => {
-      try {
-        const res = await fetch(checkEnvironment().concat("/api/notion"));
-        const items = await res.json();
-        setArticles(items["data"]);
-      } catch (err) {
-        console.log(err);
-      }
-    }, 60000);
-    return () => clearInterval(intervalId);
-  }, []);
+  // React.useEffect(() => {
+  //   const intervalId = setInterval(async () => {
+  //     try {
+  //       const res = await fetch(checkEnvironment().concat("/api/notion"));
+  //       const items = await res.json();
+  //       setArticles(items["data"]);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   }, 60000);
+  //   return () => clearInterval(intervalId);
+  // }, []);
   return (
     <>
       <Head>

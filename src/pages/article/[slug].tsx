@@ -111,7 +111,7 @@ const ArticleDetail: React.FC<Props> = ({ item }) => {
         />
       </Head>
       <article
-        className={`min-h-screen container mx-auto sm:w-3/4 md:w-3/4 lg:w-3/4`}
+        className={`min-h-screen text-justify container mx-auto sm:w-3/4 md:w-3/4 lg:w-3/4`}
       >
         {/* Thumbnail - Make it responsive */}
         <Image

@@ -5,7 +5,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ["s3.us-west-2.amazonaws.com"],
+    domains: ["s3.us-west-2.amazonaws.com", "prod-files-secure.s3.us-west-2.amazonaws.com"],
   },
 };
 

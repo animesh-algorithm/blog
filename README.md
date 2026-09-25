@@ -1,6 +1,6 @@
 # Personal Blog Website
 
-[Visit my Blog Website](https://blog.animesharma3.com/)
+[Visit my Blog Website](https://blog.animesh.cc/)
 
 This is the repository for my personal blog website built using Next.js, Tailwind CSS, and Typescript. The content of the blog is managed using Notion as a CMS. The website primarily focuses on topics related to development and data science. It is powered by Language Models (LLMs) using tools like LangChain and OpenAI, bringing AI capabilities to the blog. Additionally, the website includes a blog summarization feature to provide concise summaries of the articles. A blog question and answer (Q&A) feature is also planned and will be arriving soon, enhancing interactivity and engagement with the readers.
 
@@ -25,4 +25,4 @@ This is the repository for my personal blog website built using Next.js, Tailwin
 
 ## About the creator
 
-Created by [Animesh Sharma](https://animesh.cc). For product design and development work, visit [Hire Animesh](https://hire.animesh.cc).
+Created by [Animesh Sharma](https://www.animesh.cc). For product design and development work, visit [Hire Animesh](https://hire.animesh.cc).

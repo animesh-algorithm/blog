@@ -22,3 +22,7 @@ This is the repository for my personal blog website built using Next.js, Tailwin
 - AI-powered using Language Models (LLMs) and tools like LangChain and OpenAI
 - Blog Summarization Feature
 - Blog Q&A Feature (Coming Soon)
+
+## About the creator
+
+Created by [Animesh Sharma](https://animesh.cc). For product design and development work, visit [Hire Animesh](https://hire.animesh.cc).

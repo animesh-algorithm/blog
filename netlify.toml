@@ -1,0 +1,9 @@
+# This former Next.js site now only preserves incoming URLs as redirects.
+# Publish the static redirect file without rebuilding the retired app or
+# depending on its historical Notion schema.
+[build]
+  command = "echo 'Publishing legacy redirects'"
+  publish = "public"
+
+  [build.environment]
+    NETLIFY_NEXT_PLUGIN_SKIP = "true"

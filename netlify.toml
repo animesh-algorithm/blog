@@ -4,3 +4,6 @@
 [build]
   command = "echo 'Publishing legacy redirects'"
   publish = "public"
+
+  [build.environment]
+    NETLIFY_NEXT_PLUGIN_SKIP = "true"

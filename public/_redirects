@@ -1,0 +1,10 @@
+# The published articles now live on the canonical Blog. Keep these paths
+# working so existing article links reach their matching content.
+/article/clustering-cookbook https://blog.animesh.cc/clustering-cookbook 301!
+/article/a-comprehensive-guide-to-using-usememo-hook-in-react https://blog.animesh.cc/a-comprehensive-guide-to-using-usememo-hook-in-react 301!
+/article/how-dragon-ball-helped-me-beat-imposter-syndrome https://blog.animesh.cc/how-dragon-ball-helped-me-beat-imposter-syndrome 301!
+/article/a-comprehensive-guide-to-using-uselayouteffect-hook-in-react https://blog.animesh.cc/a-comprehensive-guide-to-using-uselayouteffect-hook-in-react 301!
+/article/a-comprehensive-guide-to-using-useeffect-hook-in-react https://blog.animesh.cc/a-comprehensive-guide-to-using-useeffect-hook-in-react 301!
+/article/a-comprehensive-guide-to-using-usestate-hook-in-react https://blog.animesh.cc/a-comprehensive-guide-to-using-usestate-hook-in-react 301!
+/article/get-up-and-running-with-nextjs-and-tailwind-css-step-by-step-guide https://blog.animesh.cc/get-up-and-running-with-nextjs-and-tailwind-css-step-by-step-guide 301!
+/ https://blog.animesh.cc/ 301!
